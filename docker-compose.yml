@@ -1,0 +1,16 @@
+version: '3'
+services:
+  airflow-image:
+    image: airflow_image:latest
+    volumes:
+      - ./airflow:/opt/airflow
+      - ./scripts:/opt/airflow/scripts
+      - ./parcellab-task-5152a2ff7d5e.json:/opt/airflow/my-key.json
+
+    ports:
+      - "8080:8080"
+    command: airflow standalone
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/opt/airflow/my-key.json
+
+

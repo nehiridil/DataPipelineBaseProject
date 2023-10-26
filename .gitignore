@@ -1,0 +1,7 @@
+/.vscode
+/parcellab-env
+/parcellab-task-5152a2ff7d5e.json
+/airflow/standalone_admin_password.txt
+/airflow/logs
+/airflow/scripts
+/airflow/dags/__pycache__
