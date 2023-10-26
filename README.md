@@ -20,7 +20,10 @@ BigQuery
      ![image](https://github.com/nehiridil/DataPipelineBaseProject/assets/46990153/9bb14238-1f1d-4a3a-8390-85cb3c1b748b)
 
     - Using 'atlanta_salaries_report_filtered', create 'atlanta_salaries_report_filtered_summary' to be able to show the average salaries of women and men of different ages. Preview of the table,
-    ![image](https://github.com/nehiridil/DataPipelineBaseProject/assets/46990153/9c5ca2df-3f07-4e73-830a-b788e71cd788)
+
+    ![image](https://github.com/nehiridil/DataPipelineBaseProject/assets/46990153/4d2cac2a-81a0-4362-ae6f-b2ac0921b90f)
+
+    
 
 
 
