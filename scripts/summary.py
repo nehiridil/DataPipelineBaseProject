@@ -11,10 +11,10 @@ def create_summary_table(table_name):
     
     summary_query = f'''
     CREATE TABLE IF NOT EXISTS {table_name} AS
-    SELECT
-    age,
-    AVG(CASE WHEN sex = 'Female' THEN annual_salary ELSE NULL END) AS female_average_salary,
-    AVG(CASE WHEN sex = 'Male' THEN annual_salary ELSE NULL END) AS male_average_salary
+        SELECT
+        age,
+        AVG(CASE WHEN sex = 'Female' THEN annual_salary ELSE NULL END) AS female_average_salary,
+        AVG(CASE WHEN sex = 'Male' THEN annual_salary ELSE NULL END) AS male_average_salary
     FROM salaries.atlanta_salaries_report_filtered
     GROUP BY age
   '''
