@@ -5,6 +5,7 @@ services:
     volumes:
       - ./airflow:/opt/airflow
       - ./scripts:/opt/airflow/scripts
+      - ./utils:/opt/airflow/utils
       - ./parcellab-task-5152a2ff7d5e.json:/opt/airflow/my-key.json
 
     ports:
