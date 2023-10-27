@@ -1,8 +1,14 @@
+import logging
+from utils import utils
 from google.cloud import bigquery
 client = bigquery.Client(project='parcellab-task')
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 def create_summary_table(table_name):
+    client.delete_table(table_name,not_found_ok=True)
+    
     summary_query = f'''
     CREATE TABLE IF NOT EXISTS {table_name} AS
     SELECT
@@ -13,13 +19,20 @@ def create_summary_table(table_name):
     GROUP BY age
   '''
 
-    client.query(summary_query)
+    query_job = client.query(summary_query)
+    utils.check_exception(query_job)
 
 
 def run_summary():
-    print("Summary table create is started.")
-    create_summary_table('salaries.atlanta_salaries_report_filtered_summary')
-    print("Summary table create is finished.")
+    try:
+        logger.info("Summary table creation has started.")
+        create_summary_table(
+            'salaries.atlanta_salaries_report_filtered_summary')
+        logger.info("Summary table creation has finished.")
+    except Exception as e:
+        logger.error(
+            f"ERROR: There was an error during the summary step. Details: {e}")
+        raise
 
 
 if __name__ == "__main__":
