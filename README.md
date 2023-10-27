@@ -35,13 +35,21 @@ BigQuery
 
 Airflow
   To be able to host airflow in your local machine, you need to install Docker Desktop first.
-  And then, using the base airflow image, create a docker container and complete configurations in the docker-compose.yml. You need to change this part with yout Google Service Account key path in docker-compose-yml:
+  Then, using the base airflow image, create a docker container and complete configurations in the docker-compose.yml. You need to change this part with your Google Service Account key path in docker-compose-yml:
    <path_to_your_service_account_key>/my-key.json:/opt/airflow/my-key.json
-  After running above commands, you will be able to reach Airflow UI from localhost:8080
+  After running the above commands, you will be able to reach Airflow UI from localhost:8080
    docker-compose build
    docker-compose up
   DAGS
-  Under Airflow directory in the 'Dags' folder you need to define dags. In this project one dag with two tasks created. One task will run filtering function and anouther will run the creation of summary table.
+  Under the Airflow directory in the 'Dags' folder, you need to define dags. In this project, one dag with two tasks was created. One task will run the filtering function and another will run the creation of summary table.
+  ![image](https://github.com/nehiridil/DataPipelineBaseProject/assets/46990153/79ef4213-bc3d-4bf8-bf22-615b94b85227)
+  Exception Handling and Logs
+  For the simplicity table not found exception is tested, when it occurs it can be seen in the logs and job fails.
+  `[2023-10-27, 08:32:38 UTC] {utils.py:16} ERROR - An unexpected error occurred: 404 Not found: Table parcellab-task:salaries.atlanta_salaries_report_wrong_table was not found in location US
+Location: US
+Job ID: 9b586e96-b0bb-4015-b8f1-3b656e437a28`
+  
+
       
 
     
