@@ -44,7 +44,7 @@ BigQuery is a serverless, highly scalable, and cost-effective multi-cloud data w
    ```
 3. After these steps if you try to run the code you will end up with `google.auth.exceptions.DefaultCredentialsError`
      To be able to resolve this issue, 
-      - Set up Google Cloud SDK using official setup steps[2]
+      - Set up Google Cloud SDK using [official setup steps](https://cloud.google.com/sdk/docs/install)
       - Create a service account from IAM&Admin Console and assign them given roles,
       ![image](https://github.com/nehiridil/DataPipelineBaseProject/assets/46990153/81f83a81-7c15-4eb6-af0f-4b3dcf37b026)
       - Then, run this command to finalize authentication:
@@ -67,19 +67,10 @@ BigQuery is a serverless, highly scalable, and cost-effective multi-cloud data w
   Under the Airflow directory in the 'Dags' folder, you need to define dags. In this project, one dag with two tasks was created. One task will run the filtering function and another will run the creation of summary table.
   ![image](https://github.com/nehiridil/DataPipelineBaseProject/assets/46990153/79ef4213-bc3d-4bf8-bf22-615b94b85227)
   - Exception Handling and Logs
-  For the simplicity table not found exception is tested, when it occurs it can be seen in the logs and job fails.
+  For the simplicity table not found exception is tested, when it occurs it can be seen in the logs and the job fails.
   ```
   [2023-10-27, 08:32:38 UTC] {utils.py:16} ERROR - An unexpected error occurred: 404 Not found: Table parcellab-task:salaries.atlanta_salaries_report_wrong_table was not found in location US
   Location: US
   Job ID: 9b586e96-b0bb-4015-b8f1-3b656e437a28
   ```
     
-
-      
-
-    
-
-
-
-[1] https://data.world/brentbrewington/atlanta-city-employee-salaries 
-[2] https://cloud.google.com/sdk/docs/install
