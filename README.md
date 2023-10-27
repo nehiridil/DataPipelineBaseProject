@@ -34,7 +34,14 @@ BigQuery
        gcloud auth application-default login --impersonate-service-account <service_account_mail_address>
 
 Airflow
-
+  To be able to host airflow in your local machine, you need to install Docker Desktop first.
+  And then, using the base airflow image, create a docker container and complete configurations in the docker-compose.yml. You need to change this part with yout Google Service Account key path in docker-compose-yml:
+   <path_to_your_service_account_key>/my-key.json:/opt/airflow/my-key.json
+  After running above commands, you will be able to reach Airflow UI from localhost:8080
+   docker-compose build
+   docker-compose up
+  DAGS
+  Under Airflow directory in the 'Dags' folder you need to define dags. In this project one dag with two tasks created. One task will run filtering function and anouther will run the creation of summary table.
       
 
     
