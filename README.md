@@ -1,29 +1,42 @@
 # Data Pipeline Base Project
-This project aims to create a summary report of the "Atlanta City Employee Salaries"[1] dataset using a preferable database and data orchestration tool.
 
-🌟 Features
-Database - Google BigQuery
-  *Seamlessly pull and process data with Google's BigQuery.
-Orchestration Tool - Apache Airflow 
-  *Efficient data pipeline management and scheduling with Apache Airflow.
+This project aims to create a summary report of the "Atlanta City Employee Salaries" dataset using a preferable database and data orchestration tool.
 
-BigQuery
-  BigQuery is a serverless, highly scalable, and cost-effective multi-cloud data warehouse.
+## 🌟 Features
 
-  Setup
-    - Create a new project in Google Cloud Console and navigate to BigQuery.
-    - Create a dataset called 'salaries' and a table using the dataset[1] provided and name as 'atlanta_salaries_report'.
-    ![image](https://github.com/nehiridil/DataPipelineBaseProject/assets/46990153/6e648845-560c-4895-b8cb-82483c10c53b)
+- **Database**: Google BigQuery
+  - Seamlessly pull and process data with Google's BigQuery.
 
-  Data Processing
-    - Using 'atlanta_salaries_report', create 'atlanta_salaries_report_filtered' by including entries with 0.95 percentile in annual salary and exclude who has 'Organization' includes 'Atlanta'. Preview of the table,
-     ![image](https://github.com/nehiridil/DataPipelineBaseProject/assets/46990153/9bb14238-1f1d-4a3a-8390-85cb3c1b748b)
-    - Using 'atlanta_salaries_report_filtered', create 'atlanta_salaries_report_filtered_summary' to be able to show the average salaries of women and men of different ages. Preview of the table,
-    ![image](https://github.com/nehiridil/DataPipelineBaseProject/assets/46990153/4d2cac2a-81a0-4362-ae6f-b2ac0921b90f)
+- **Orchestration Tool**: Apache Airflow 
+  - Efficient data pipeline management and scheduling with Apache Airflow.
 
-   Python Scripts and BigQuery Authentication
-    - To be able to run queries inside a Python Script, these steps should be followed,
-      - Install the bigquery library -> pip install google-cloud-bigquery
+## BigQuery
+
+BigQuery is a serverless, highly scalable, and cost-effective multi-cloud data warehouse.
+
+### Setup
+
+1. Create a new project in Google Cloud Console and navigate to BigQuery.
+2. Create a dataset called 'salaries'.
+3. Use the dataset provided [here](https://data.world/brentbrewington/atlanta-city-employee-salaries) to create a table named 'atlanta_salaries_report'.
+
+![setup-image](https://github.com/nehiridil/DataPipelineBaseProject/assets/46990153/6e648845-560c-4895-b8cb-82483c10c53b)
+
+### Data Processing
+
+- Using 'atlanta_salaries_report', create 'atlanta_salaries_report_filtered'. Include entries with the 0.95 percentile in annual salary and exclude those where 'Organization' includes 'Atlanta'.
+
+![filter-image](https://github.com/nehiridil/DataPipelineBaseProject/assets/46990153/9bb14238-1f1d-4a3a-8390-85cb3c1b748b)
+
+- Using 'atlanta_salaries_report_filtered', create 'atlanta_salaries_report_filtered_summary'. This will show the average salaries of women and men across different ages.
+
+![summary-image](https://github.com/nehiridil/DataPipelineBaseProject/assets/46990153/4d2cac2a-81a0-4362-ae6f-b2ac0921b90f)
+
+### Python Scripts and BigQuery Authentication
+
+1. Install the bigquery library:
+   ```shell
+   pip install google-cloud-bigquery
       - Ensure that the path where google-cloud-bigquery is installed is on your PYTHONPATH. If not, add to PYTHONPATH. You can find the installation path with this command in Windows systems-> pip show google-cloud-bigquery | findstr Location
      After these steps if you try to run the code you will end up with 'google.auth.exceptions.DefaultCredentialsError'
      To be able to resolve this issue, 
